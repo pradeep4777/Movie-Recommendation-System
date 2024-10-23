@@ -3,12 +3,12 @@ import difflib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Load the movie dataset
+# Loading the movie dataset
 movies_data = pd.read_csv("movies.csv")
 
 selected_features = ["genres", "keywords", "tagline", "cast", "director"]
 
-# Fill missing values with empty strings
+# Filling missing values with empty strings
 for feature in selected_features:
     movies_data[feature] = movies_data[feature].fillna("")
 
@@ -29,7 +29,7 @@ combined_features = (
 vectorizer = TfidfVectorizer()
 feature_vectors = vectorizer.fit_transform(combined_features)
 
-# Calculate similarity between movies
+# Calculating similarity between movies
 similarity = cosine_similarity(feature_vectors)
 
 
