@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 70vh;">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center mb-4">Welcome, {{ session['username'] }}</h2>
+        <p class="text-center">Enter a movie name to get recommendations:</p>
+        <form method="POST" action="{{ url_for('home') }}">
+            <div class="form-group">
+                <label for="movie_name">Movie Name</label>
+                <input type="text" class="form-control" id="movie_name" name="movie_name" required
+                    placeholder="Enter a movie name">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-4">Get Recommendations</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
